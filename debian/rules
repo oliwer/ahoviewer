@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+DISTRIBUTION = $(shell awk '{print $$2}' </etc/issue.net)
+VERSION = $(shell git describe --tags)
+PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-ssl --enable-zip
+
+override_dh_gencontrol:
+	dh_gencontrol -- -v$(PACKAGEVERSION)
+

@@ -1,0 +1,13 @@
+Source: ahoviewer
+Maintainer: Olivier Duclos <odc@fea.st>
+Build-Depends: debhelper (>=10), autoconf, automake, libtool,
+  libssl-dev, libcurl4-openssl-dev, libxml2-dev, libconfig++-dev, git,
+  libgtkmm-2.4-dev, libzip-dev
+
+Package: ahoviewer
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Section: graphics
+Priority: optional
+Description: A GTK2 image viewer, manga reader, and booru browser
+

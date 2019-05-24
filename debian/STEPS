@@ -1,0 +1,7 @@
+docker run --rm -it -v $(pwd):/pkg ubuntu-builder:19.04
+apt-get install equivs
+mk-build-deps -ir debian/control
+dpkg-buildpackage -us -uc --post-clean
+mv ../ahoviewer* .
+dh_clean
+make distclean
